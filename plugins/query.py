@@ -87,7 +87,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 except:
                     pass
             else:
-                await query.answer("Buddy Don't Touch Others Property 😁", show_alert=True)
+                await query.answer("Buddy Don't Touch Someone Else's Property 😁", show_alert=True)
     elif "groupcb" in query.data:
         await query.answer()
 
@@ -235,7 +235,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         ident, file_id = query.data.split("#")
         files_ = await get_file_details(file_id)
         if not files_:
-            return await query.answer('No such file exist.')
+            return await query.answer('Sorry, No such file exist.')
         files = files_[0]
         title = files.file_name
         size = get_size(files.file_size)
@@ -296,9 +296,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     caption=f_caption,
                     protect_content=True if ident == "filep" else False 
                 )
-                await query.answer('Check PM, I have sent files in pm', show_alert=True)
+                await query.answer('Check your private message, I have sent you the files there', show_alert=False)
         except UserIsBlocked:
-            await query.answer('Unblock the bot mahn !', show_alert=True)
+            await query.answer('Sweetie please unblock the bot! (Go to your settings and check privacy settings and then check your blocked users and unblock the bot there!', show_alert=True)
         except PeerIdInvalid:
             await query.answer(url=f"https://t.me/{temp.U_NAME}?start={ident}_{file_id}")
         except Exception as e:
@@ -307,12 +307,12 @@ async def cb_handler(client: Client, query: CallbackQuery):
       
     elif query.data.startswith("checksub"):
         if AUTH_CHANNEL and not await is_subscribed(client, query):
-            await query.answer("I Like Your Smartness, But Don't Be Oversmart Okay", show_alert=True)
+            await query.answer("I Like Your Smartness, But Don't Be too Oversmart. Okay?", show_alert=True)
             return
         ident, file_id = query.data.split("#")
         files_ = await get_file_details(file_id)
         if not files_:
-            return await query.answer('No such file exist.')
+            return await query.answer('Sorry, no such file exist.')
         files = files_[0]
         title = files.file_name
         size = get_size(files.file_size)
@@ -526,13 +526,13 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
     elif query.data == "start":                        
         buttons = [[
-            InlineKeyboardButton("➕️ 𝙰𝙳𝙳 𝙼𝙴 𝚃𝙾 𝚈𝙾𝚄𝚁 𝙶𝚁𝙾𝚄𝙿 ➕️", url=f"http://t.me/{temp.U_NAME}?startgroup=true")
+            InlineKeyboardButton("⚚ ΛᎠᎠ MΞ ϮԾ YԾUᏒ GᏒԾUᎮ ⚚", url=f'http://t.me/{temp.U_NAME}?startgroup=true')
             ],[
-            InlineKeyboardButton("🔍 𝚂𝙴𝙰𝚁𝙲𝙷 🔍", switch_inline_query_current_chat=''), 
-            InlineKeyboardButton("📢 𝚄𝙿𝙳𝙰𝚃𝙴𝚂 📢", url="https://t.me/mkn_bots_updates")
+            InlineKeyboardButton("🔍 𝚂𝚎𝚊𝚛𝚌𝚑", switch_inline_query_current_chat=''),
+            InlineKeyboardButton("🍿 UᎮDΛTΞS 🍿", url="https://t.me/Lordshiptv")
             ],[
-            InlineKeyboardButton("ℹ️ 𝙷𝙴𝙻𝙿 ℹ️", callback_data="help"),
-            InlineKeyboardButton("💫 𝙰𝙱𝙾𝚄𝚃 💫", callback_data="about")
+            InlineKeyboardButton("♻️ HΞLᎮ ♻️", callback_data="help"),
+            InlineKeyboardButton("💫 ΛBOUT 💫", callback_data="about")
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.edit_message_media(
@@ -620,7 +620,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
     elif query.data == "source":
         buttons = [[
-            InlineKeyboardButton('SOURCE CODE', url='https://github.com/MrMKN/PROFESSOR-BOT')
+            InlineKeyboardButton('SOURCE CODE', url='https://github.com/Hislordshipb/Movie_Bot')
             ],[
             InlineKeyboardButton('👩‍🦯 Back', callback_data='about')
         ]]
